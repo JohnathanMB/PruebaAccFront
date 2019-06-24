@@ -1,0 +1,18 @@
+.formularioRegistro{
+    text-align: center;
+    padding-top: 20%;
+}
+
+form{
+    text-align:center;
+}
+
+input{
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+span{
+    color: crimson;
+}

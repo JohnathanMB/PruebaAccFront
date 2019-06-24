@@ -1,0 +1,43 @@
+<div>
+
+  <form [formGroup]="formularioRegistro" class='formularioRegistro'>
+
+    <p>
+      Los campos con * son requeridos
+    </p>
+
+    <div>
+      <label for='CC'>Cedula de ciudadania</label>
+      <input type='number' name='CC' formControlName='CC'>*<br>
+      <span>{{ getError('CC')}}</span>
+      <br>
+    </div>
+
+    <div>
+      <label for="nombre">Nombre</label>
+      <input name="nombre" formControlName="nombre" type="text" />*<br>
+      <span>{{ getError('nombre')}}</span>
+      <br>
+    </div>
+
+    <div>
+      <label for="apellido">Apellido</label>
+      <input name="apellido" formControlName="apellido" type="text" />*<br>
+      <span>{{ getError('apellido')}}</span>
+      <br>
+    </div>
+
+    <div>
+      <label for="fecha_nacimiento">Fecha de nacimiento</label>
+      <input type="date" name="fecha_nacimiento" formControlName="fecha_nacimiento">*<br>
+      <span>{{ getError('fecha_nacimiento')}}</span>
+      <br>
+    </div>
+
+    <div>
+      <button (click)="register()" [disabled]="formularioRegistro.invalid">Register me!</button>
+    </div>
+
+  </form>
+
+</div>
