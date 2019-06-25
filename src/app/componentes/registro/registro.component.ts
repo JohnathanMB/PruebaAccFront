@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import {ClienteService} from '../../services/cliente/cliente.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -12,7 +12,7 @@ export class RegistroComponent implements OnInit {
   public formularioRegistro: FormGroup;
   public cc: string;
 
-  constructor(private formBuider: FormBuilder, public clienteService: ClienteService) { }
+  constructor(private router: Router, private formBuider: FormBuilder, public clienteService: ClienteService) { }
 
   ngOnInit() {
     //this.getClienteId('000');
@@ -100,6 +100,9 @@ export class RegistroComponent implements OnInit {
   private registrarCliente(cliente: any){
     this.clienteService.postCliente(cliente).subscribe(resultado=>{
       console.log(resultado);
+      //directo a consultas
+      //TODO
+      this.router.navigate(['/']);
     },
     error => {
       console.log(JSON.stringify(error.status));

@@ -1,0 +1,41 @@
+.home{
+    text-align: center;
+    padding: 5%;
+}
+
+.buttonLogin{
+    height: 150px;
+    width: 300px;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 35px;
+    color: #000000;
+    background-color: RGB(135, 206, 250);
+    border-radius: 6px;
+}
+
+.buttonLogin:hover {
+    color: antiquewhite;
+    background-color: RGB(100, 149, 237);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+.buttonRegistro{
+    height: 100px;
+    width: 300px;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 25px;
+    color: #000000;
+    background-color: RGB(70, 130, 180);
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.buttonRegistro:hover {
+    color: antiquewhite;
+    background-color: RGB(100, 149, 237);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }

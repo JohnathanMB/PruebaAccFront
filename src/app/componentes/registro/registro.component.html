@@ -1,4 +1,4 @@
-<div>
+<div class="cardRegistro">
 
   <form [formGroup]="formularioRegistro" class='formularioRegistro'>
 
@@ -35,15 +35,16 @@
     </div>
 
     <div>
-      <button (click)="register()" [disabled]="formularioRegistro.invalid">Register me!</button>
+      <button (click)="register()" [disabled]="formularioRegistro.invalid"> Registrar </button>
     </div>
 
   </form>
 
 </div>
 
-<div class="card" *ngIf=cc>
+<div class="card" *ngIf=true>
   <div class="container">
-    <h1>Ya existe un cliente con esta Cedula de ciudadania</h1>
+    <h2>Ya existe un cliente con este documento de identidad</h2>
+    <h4>Verifica tus datos e intentalo de nuevo</h4>
   </div>
 </div>

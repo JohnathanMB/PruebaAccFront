@@ -6,11 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './componentes/home/home.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroComponent,
+    HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

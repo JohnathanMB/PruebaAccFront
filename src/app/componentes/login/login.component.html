@@ -1,0 +1,10 @@
+<div class="cardLogin">
+  <form [formGroup]="fomularioLogin">
+      <div>
+          <label for='cc'>Cedula de ciudadania</label>
+          <input type='number' name='cc' formControlName='cc'>*<br>
+          <span>{{ getError('cc') }}</span>
+          <br>
+        </div>
+  </form>
+</div>
