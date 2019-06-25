@@ -1,3 +1,40 @@
-<p>
-  consulta works!
-</p>
+<div>
+  <div class="cardConsulta">
+
+    <form [formGroup]="formularioConsulta">
+
+      <div>
+        <label for='empresa'>Empresa</label>
+        <input type='text' name='empresa' formControlName='empresa'><br>
+        <br>
+      </div>
+
+      <div>
+        <label for='nit'>Nit de la empresa</label>
+        <input type='number' name='nit' formControlName='nit'>*<br>
+        <span>{{ getError('nit') }}</span>
+        <br>
+      </div>
+
+      <div>
+        <label for='salario'>Salario Actual</label>
+        <input type='number' name='salario' formControlName='salario'> COP*<br>
+        <span>{{ getError('salario') }}</span>
+        <br>
+      </div>
+
+      <div>
+        <label for='fecha_ingreso'>Fecha de ingreso</label>
+        <input type='date' name='fecha_ingreso' formControlName='fecha_ingreso'>*<br>
+        <span>{{ getError('fecha_ingreso') }}</span>
+        <br>
+      </div>
+
+    </form>
+
+  </div>
+
+  <div class="cardResultado">
+
+  </div>
+</div>
