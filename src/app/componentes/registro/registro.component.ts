@@ -88,6 +88,7 @@ export class RegistroComponent implements OnInit {
     },
     error=>{
       if(error.status == '404'){
+        this.cc = null;
         console.log('No existe el usuario, se puede registrar');
         this.registrarCliente(user);
       }
