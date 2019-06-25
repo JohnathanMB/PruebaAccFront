@@ -34,9 +34,11 @@ button:disabled{
 span{
     color: RGB(255, 160, 122);
     font-style: italic;
+    font-size: 15px;
 }
 
 .cardRegistro{
+    font-size: 18px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     margin-left: 20%;
@@ -48,8 +50,6 @@ span{
 }
 
 .card {
-    /* Add shadows to create the "card" effect */
-    
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     background-color: RGB(240, 128, 128);
@@ -60,12 +60,10 @@ span{
     
   }
   
-  /* On mouse-over, add a deeper shadow */
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
   
-  /* Add some padding inside the card container */
   .container {
     text-align: center;
     padding: 2px 16px;

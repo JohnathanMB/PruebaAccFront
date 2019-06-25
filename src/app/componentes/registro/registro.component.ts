@@ -15,18 +15,15 @@ export class RegistroComponent implements OnInit {
   constructor(private router: Router, private formBuider: FormBuilder, public clienteService: ClienteService) { }
 
   ngOnInit() {
-    //this.getClienteId('000');
     this.buildForm();
   }
 
   private buildForm() {
-
-
     const dateLength = 10;
     const today = new Date().toISOString().substring(0, dateLength);
 
     this.formularioRegistro = this.formBuider.group({
-      cc: ['', [Validators.required]],
+      cc: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       fecha_nacimiento: [today, [Validators.required, this.esMayorDeEdad]]
@@ -35,18 +32,13 @@ export class RegistroComponent implements OnInit {
 
   public register() {
     const user = this.formularioRegistro.value;
-    console.log(user);
     this.getClienteId(user);
-    //this.registrarCliente(user);
   }
 
   public getError(controlName: string): string {
     let error = '';
     const control = this.formularioRegistro.get(controlName);
-
     if (control.touched && control.errors != null) {
-      //console.log(control.errors);
-      //console.log("Valor :"+control.value);
       if (control.errors.required) {
         error = 'Campo requerido\t';
       } else if (control.errors.edad) {

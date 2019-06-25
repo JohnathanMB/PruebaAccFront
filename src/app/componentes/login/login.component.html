@@ -1,10 +1,23 @@
 <div class="cardLogin">
-  <form [formGroup]="fomularioLogin">
-      <div>
-          <label for='cc'>Cedula de ciudadania</label>
-          <input type='number' name='cc' formControlName='cc'>*<br>
-          <span>{{ getError('cc') }}</span>
-          <br>
-        </div>
+  <form [formGroup]="formularioLogin">
+
+    <div>
+      <label for='cc'>Cedula de ciudadania</label>
+      <input type='number' name='cc' formControlName='cc'>*<br>
+      <span>{{ getError('cc') }}</span>
+      <br>
+    </div>
+
+    <div>
+      <button (click)="ingresar()" class="buttonLogin" [disabled]="formularioLogin.invalid">Ingresar</button>
+    </div>
+
   </form>
 </div>
+
+<div class="card" *ngIf=loginFail>
+    <div class="container">
+      <h2>No se encuentra el usuario con el documento dado</h2>
+      <h4>Verifica tus datos e intentalo de nuevo</h4>
+    </div>
+  </div>
