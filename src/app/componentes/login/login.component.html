@@ -1,4 +1,35 @@
-<div class="cardLogin">
+<div class="container-fluid">
+  <div class="divIzquierda">
+    <img src="http://www.bocapi-muebles.com/wp-content/uploads/2016/10/pashidi.png" alt="" width="50%" height="70px">
+  </div>
+
+  <div class="divCentro">
+    <form [formGroup]="formularioLogin">
+        <label for='cc'>Cedula de ciudadania</label>
+
+        <div class="loginFormContainer">
+          <div>
+              <input type='number' name='cc' formControlName='cc'>
+          </div>
+          <div>
+              <button (click)="ingresar()" class="buttonLogin" [disabled]="formularioLogin.invalid">Ingresar</button>
+          </div>
+        </div>
+        <span>{{ getError('cc') }}</span>
+
+    </form>
+
+    
+
+  </div>
+
+  <div class="divDerecha"  *ngIf=loginFail>
+      <h2>No se encuentra el usuario con el documento dado</h2>
+      <h4>Verifica tus datos e intentalo de nuevo</h4>
+  </div>
+</div>
+
+<!-- <div class="cardLogin">
   <form [formGroup]="formularioLogin">
 
     <div>
@@ -13,11 +44,11 @@
     </div>
 
   </form>
-</div>
+</div> -->
 
 <div class="card" *ngIf=loginFail>
-    <div class="container">
-      <h2>No se encuentra el usuario con el documento dado</h2>
-      <h4>Verifica tus datos e intentalo de nuevo</h4>
-    </div>
+  <div class="container">
+    <h2>No se encuentra el usuario con el documento dado</h2>
+    <h4>Verifica tus datos e intentalo de nuevo</h4>
   </div>
+</div>

@@ -1,43 +1,94 @@
-.cardLogin{
-    font-size: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 20px;
-    padding: 50px;
-    background-color: RGB(135, 206, 250);
-    border-radius: 15px;
-    text-align: center;
+.container-fluid{
+  display: flex;
+  background-color: RGB(135, 206, 250);
+  height: 120px;
+  position: absolute;
+  width: 100%;
+  /* justify-content: space-around; */
+  align-items: center;
+
+}
+
+.divIzquierda{
+  line-height: 180px;
+  text-align: center;
+  height: 120px;
+  width: 45%;
+  
+}
+
+.divCentro{
+  padding: 10px;
+  text-align: center;
+  height: 120px;
+  width: 25%;
+  
+  font-size: 23px;
+  justify-content: space-around;
+}
+
+.loginFormContainer{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center; 
 }
 
 input{
     padding: 5px;
-    margin-left: 10px;
+    font-size: 18px;
+    border: 2px solid #0099CC;
+    border-radius: 6px;
+    margin-right: 10px;
 }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
 
 span{
     color: RGB(240, 128, 128);
     font-style: italic;
-    font-size: 15px;
+    font-size: 20px;
+} 
+
+.buttonLogin:enabled{
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 20px;
+  color: rgb(3, 83, 109);
+  background: transparent;
+  border: 2px solid #0099CC;
+  border-radius: 6px;
 }
 
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    background-color: RGB(240, 128, 128);
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 20px;
-    border-radius: 15px;
-    
-  }
+.buttonLogin:enabled:hover{
+  background-color: #008CBA;
+  color: white;
+}
+
+.buttonLogin:disabled{
+  margin-left: 10px; 
+  padding: 5px;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  border: 2px solid #0099CC;
+  border-radius: 6px;
   
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  .container {
-    text-align: center;
-    padding: 2px 16px;
-  }
+}
+
+
+
+.divDerecha{
+  margin-right: 80px;
+  background-color: rgb(255, 218, 203);
+  padding: 20px;
+  text-align: center;
+  height: 105px;
+  width: 30%;
+  border: 2px solid rgb(250,128,114);
+  border-radius: 50px;
+}
