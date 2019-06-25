@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import {ClienteService} from '../../services/cliente/cliente.service';
 
 @Component({
   selector: 'app-registro',
@@ -9,21 +10,23 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractContro
 export class RegistroComponent implements OnInit {
 
   public formularioRegistro: FormGroup;
-  public errorFecha: string = 'hola';
+  public cc: string;
 
-  constructor(private formBuider: FormBuilder) { }
+  constructor(private formBuider: FormBuilder, public clienteService: ClienteService) { }
 
   ngOnInit() {
+    //this.getClienteId('000');
     this.buildForm();
   }
 
   private buildForm() {
 
+
     const dateLength = 10;
     const today = new Date().toISOString().substring(0, dateLength);
 
     this.formularioRegistro = this.formBuider.group({
-      CC: ['', Validators.required],
+      cc: ['', [Validators.required]],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       fecha_nacimiento: [today, [Validators.required, this.esMayorDeEdad]]
@@ -33,6 +36,8 @@ export class RegistroComponent implements OnInit {
   public register() {
     const user = this.formularioRegistro.value;
     console.log(user);
+    this.getClienteId(user);
+    //this.registrarCliente(user);
   }
 
   public getError(controlName: string): string {
@@ -40,7 +45,7 @@ export class RegistroComponent implements OnInit {
     const control = this.formularioRegistro.get(controlName);
 
     if (control.touched && control.errors != null) {
-      console.log(control.errors);
+      //console.log(control.errors);
       //console.log("Valor :"+control.value);
       if (control.errors.required) {
         error = 'Campo requerido\t';
@@ -69,11 +74,36 @@ export class RegistroComponent implements OnInit {
     if (edad < 18) {
       error = { ...error, edad: 'Debe ser mayor de edad para poder registrarse' };
     }
-
-    //this.errorFecha = 'Debe ser mayor de edad para poder registrarse';
-
-    //console.log(error);
     return error;
   };
+
+  private getClienteId(user){
+    var cc = user.cc;
+    this.clienteService.getCliente(cc).subscribe(resultado=>{
+      console.log(resultado);
+      this.cc = resultado.cc;
+      console.log('cc: '+this.cc);
+      console.log('Ya existe un usuario registrado con este documento');
+      
+    },
+    error=>{
+      if(error.status == '404'){
+        console.log('No existe el usuario, se puede registrar');
+        this.registrarCliente(user);
+      }
+      console.log(JSON.stringify(error.status));
+    });
+
+  }
+
+  private registrarCliente(cliente: any){
+    this.clienteService.postCliente(cliente).subscribe(resultado=>{
+      console.log(resultado);
+    },
+    error => {
+      console.log(JSON.stringify(error.status));
+    });
+  }
+
 
 }
