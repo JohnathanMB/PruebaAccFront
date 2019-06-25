@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
       console.log(resultado);
       this.clienteService.setUser(resultado.cc);
       this.loginFail = false;
+      this.router.navigate(['/consulta']);
     },
     error=>{
       if(error.status == '404'){
