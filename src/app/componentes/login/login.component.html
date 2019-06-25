@@ -1,15 +1,15 @@
 <div class="container-fluid">
   <div class="divIzquierda">
-    <img src="http://www.bocapi-muebles.com/wp-content/uploads/2016/10/pashidi.png" alt="" width="50%" height="70px">
+    <img src="https://cdn.pixabay.com/photo/2014/04/03/10/01/bench-309646_960_720.png" alt=""  height="70px">
   </div>
 
   <div class="divCentro">
     <form [formGroup]="formularioLogin">
-        <label for='cc'>Cedula de ciudadania</label>
+        <!-- <label for='cc'>Cedula de ciudadania</label> -->
 
         <div class="loginFormContainer">
           <div>
-              <input type='number' name='cc' formControlName='cc'>
+              <input type='number' name='cc' formControlName='cc' placeholder="Documento de Identidad">
           </div>
           <div>
               <button (click)="ingresar()" class="buttonLogin" [disabled]="formularioLogin.invalid">Ingresar</button>
@@ -23,7 +23,7 @@
 
   </div>
 
-  <div class="divDerecha"  *ngIf=loginFail>
+  <div class="divDerecha"  *ngIf=true>
       <h2>No se encuentra el usuario con el documento dado</h2>
       <h4>Verifica tus datos e intentalo de nuevo</h4>
   </div>

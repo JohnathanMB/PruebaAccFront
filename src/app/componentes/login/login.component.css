@@ -1,6 +1,6 @@
 .container-fluid{
   display: flex;
-  background-color: RGB(135, 206, 250);
+  background-color: 	rgb(0,0,139);
   height: 120px;
   position: absolute;
   width: 100%;
@@ -18,7 +18,7 @@
 }
 
 .divCentro{
-  padding: 10px;
+  padding: 30px;
   text-align: center;
   height: 120px;
   width: 25%;
@@ -50,7 +50,7 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] { -moz-appearance:textfield; }
 
 span{
-    color: RGB(240, 128, 128);
+    color: RGB(255, 255, 255);
     font-style: italic;
     font-size: 20px;
 } 
@@ -59,23 +59,25 @@ span{
   margin-left: 10px;
   padding: 5px;
   font-size: 20px;
-  color: rgb(3, 83, 109);
-  background: transparent;
-  border: 2px solid #0099CC;
+  color: white;
+  background: #00a3d8;
+  border: 2px solid #00a3d8;
   border-radius: 6px;
 }
 
 .buttonLogin:enabled:hover{
   background-color: #008CBA;
   color: white;
+  border: 2px solid #008CBA;
 }
 
 .buttonLogin:disabled{
   margin-left: 10px; 
   padding: 5px;
   font-size: 20px;
-  color: rgb(255, 255, 255);
-  border: 2px solid #0099CC;
+  color: rgb(169,169,169);
+  background: rgb(245,245,245);;
+  border: 2px rgb(255,255,255);
   border-radius: 6px;
   
 }
