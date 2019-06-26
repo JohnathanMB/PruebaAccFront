@@ -22,7 +22,13 @@ export class ClienteService {
 
     const clienteUrl = 'http://localhost:3000/clientes';
     return this.http.post(clienteUrl, jsonCliente, {headers : headers});
+  }
 
+  postLogin(cc: string): Observable<any>{
+    let jsonClienteLogin = JSON.stringify(cc);
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const clienteLoginUrl = 'http://localhost:3000/clientes/login';
+    return this.http.post(clienteLoginUrl, jsonClienteLogin,  {headers : headers});
   }
 
   setUser(cc): void {

@@ -41,9 +41,9 @@ export class LoginComponent implements OnInit {
   }
 
   public ingresar(){
-    const cc = this.formularioLogin.value.cc;
+    const cc = this.formularioLogin.value;
     console.log(cc);
-    this.getClienteId(cc);
+    this.login(cc);
   }
 
   private getClienteId(cc){
@@ -60,6 +60,21 @@ export class LoginComponent implements OnInit {
       console.log(JSON.stringify(error.status));
     });
 
+  }
+
+  private login(cc){
+    this.clienteService.postLogin(cc).subscribe(resultado => {
+      console.log(resultado);
+      this.clienteService.setUser(resultado.cc);
+      this.loginFail = false;
+      this.router.navigate(['/consulta']);
+    },
+    error=>{
+      if(error.status == '404'){
+        this.loginFail = true;
+      }
+      console.log(JSON.stringify(error.status));
+    });
   }
 
 }
