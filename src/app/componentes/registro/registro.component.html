@@ -1,7 +1,7 @@
 <div class="cardRegistro">
 
   <form [formGroup]="formularioRegistro" class='formularioRegistro'>
-
+      <h1>Registro</h1>
     <p>
       Los campos con * son requeridos
     </p>
@@ -35,7 +35,7 @@
     </div>
 
     <div>
-      <button (click)="register()" [disabled]="formularioRegistro.invalid"> Registrar </button>
+      <button (click)="register()" class="buttonRegistro" [disabled]="formularioRegistro.invalid"> Registrar </button>
     </div>
 
   </form>

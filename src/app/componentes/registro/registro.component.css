@@ -12,30 +12,38 @@ input{
     margin-left: 10px;
 }
 
-button{
-    margin-top: 10px;
-    text-decoration: none;
-    padding: 10px;
-    font-weight: 600;
-    font-size: 20px;
-    color: #000000;
-    
-    border-radius: 6px;
-}
-
-button:enabled{
-    background-color: RGB(127, 255, 212);
-}
-
-button:disabled{
-    background-color: RGB(211, 211, 211);
-}
-
 span{
     color: RGB(255, 160, 122);
     font-style: italic;
     font-size: 15px;
 }
+
+.buttonRegistro:enabled{
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 15px;
+    color: white;
+    background: #00a3d8;
+    border: 2px solid #00a3d8;
+    border-radius: 6px;
+}
+  
+.buttonRegistro:enabled:hover{
+    background-color: #008CBA;
+    color: white;
+    border: 2px solid #008CBA;
+}
+  
+.buttonRegistro:disabled{
+    margin-left: 10px; 
+    padding: 5px;
+    font-size: 15px;
+    color: rgb(169,169,169);
+    background: rgb(245,245,245);;
+    border: 2px rgb(255,255,255);
+    border-radius: 6px; 
+}
+
 
 .cardRegistro{
     font-size: 18px;
@@ -60,11 +68,14 @@ span{
     
   }
   
-  .card:hover {
+.card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
+}
   
-  .container {
+.container {
     text-align: center;
     padding: 2px 16px;
-  }
+}
+
+
+  

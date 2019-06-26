@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { ConsultaService } from '../../services/consulta/consulta.service';
 
 @Component({
   selector: 'app-consulta',
@@ -9,8 +10,13 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractContro
 export class ConsultaComponent implements OnInit {
 
   public formularioConsulta: FormGroup;
+  public consultaRealizada = false;
+  public boolMonto = false;
+  public aprobada ;
+  public monto;
+  public mensaje;
 
-  constructor(private formBuider: FormBuilder) { }
+  constructor(private formBuider: FormBuilder, private clienteConsulta: ConsultaService) { }
 
   ngOnInit() {
     this.buildForm();
@@ -24,7 +30,33 @@ export class ConsultaComponent implements OnInit {
       empresa: [],
       nit: ['', [Validators.required,  this.esEntero, this.formatoNit]],
       salario: ['', [Validators.required, Validators.max(100000000), Validators.min(0), this.esEntero]],
-      fecha_ingreso: [today, [Validators.required, this.esPasado]]
+      fecha_inicio: [today, [Validators.required, this.esPasado]]
+    });
+  }
+
+  public consultar(){
+    const consulta = this.formularioConsulta.value;
+    this.postConsulta(consulta);
+  }
+
+  postConsulta(consulta: any) {
+    this.clienteConsulta.postConsulta(consulta).subscribe(resultado=>{
+      console.log(resultado);
+      console.log(resultado.aprobado);
+      this.consultaRealizada = true;
+      if(resultado.aprobado){
+        this.aprobada = 'Felicitaciones!\nSu credito a sido aprobado';
+        this.boolMonto = true;
+        this.monto = resultado.credito;
+      }else{
+        this.aprobada = 'Lo sentimos\nsu credito a sido rechazado';
+        this.boolMonto = false;
+      }
+      this.mensaje = resultado.mensaje;
+
+    },
+    error=>{
+      console.log(error);
     });
   }
 
@@ -44,17 +76,18 @@ export class ConsultaComponent implements OnInit {
     var nit = control.value;
     var cadenaNit = nit.toString();
     if(cadenaNit.length != 10){
-      error = { ...error, formato_nit: 'El nit ingresado no cumple con el formato XXXXXXXXXY' };
+      // error = { ...error, formato_nit: 'El nit ingresado no cumple con el formato XXXXXXXXXY' };
+      error = { ...error, formato_nit: 'El nit ingresado no cumple con el formato, Debe tener 10 digitos' };
     }
     return error;
   }
 
   private esPasado(control: AbstractControl){
     let error = null;
-    var fecha_ingreso = control.value;
+    var fecha_inicio = control.value;
     const today = new Date().toISOString().substring(0, 10);
 
-    if(today <= fecha_ingreso){
+    if(today <= fecha_inicio){
       error = { ...error, ingreso: 'La fecha de ingreso debe ser posterior al dia de hoy' };
     }
 
@@ -98,6 +131,8 @@ export class ConsultaComponent implements OnInit {
     return digito;
 
   }
+
+
 
 
 

@@ -1,7 +1,10 @@
 <div>
   <div class="cardConsulta">
-
     <form [formGroup]="formularioConsulta">
+      <h1>Consulta de credito</h1>
+      <p>
+        Los campos con * son requeridos
+      </p>
 
       <div>
         <label for='empresa'>Empresa</label>
@@ -24,17 +27,26 @@
       </div>
 
       <div>
-        <label for='fecha_ingreso'>Fecha de ingreso</label>
-        <input type='date' name='fecha_ingreso' formControlName='fecha_ingreso'>*<br>
-        <span>{{ getError('fecha_ingreso') }}</span>
+        <label for='fecha_inicio'>Fecha de ingreso</label>
+        <input type='date' name='fecha_inicio' formControlName='fecha_inicio'>*<br>
+        <span>{{ getError('fecha_inicio') }}</span>
         <br>
+      </div>
+
+      <div>
+        <button (click)="consultar()" class="buttonConsulta" [disabled]="formularioConsulta.invalid"> Consultar Credito
+        </button>
       </div>
 
     </form>
 
   </div>
 
-  <div class="cardResultado">
+  <div class="cardResultado" *ngIf=consultaRealizada >
+    <h1>Resultado de la Consulta</h1><br><br>
+    <h2>{{ aprobada }}</h2><br>
+    <h2 *ngIf=boolMonto >Monto aprobado {{ monto }}</h2><br>
+    <h2>{{ mensaje }}</h2><br>
 
   </div>
 </div>
