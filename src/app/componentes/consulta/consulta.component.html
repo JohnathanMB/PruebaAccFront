@@ -1,0 +1,52 @@
+<div>
+  <div class="cardConsulta">
+    <form [formGroup]="formularioConsulta">
+      <h1>Consulta de credito</h1>
+      <p>
+        Los campos con * son requeridos
+      </p>
+
+      <div>
+        <label for='empresa'>Empresa</label>
+        <input type='text' name='empresa' formControlName='empresa'><br>
+        <br>
+      </div>
+
+      <div>
+        <label for='nit'>Nit de la empresa</label>
+        <input type='number' name='nit' formControlName='nit'>*<br>
+        <span>{{ getError('nit') }}</span>
+        <br>
+      </div>
+
+      <div>
+        <label for='salario'>Salario Actual</label>
+        <input type='number' name='salario' formControlName='salario'> COP*<br>
+        <span>{{ getError('salario') }}</span>
+        <br>
+      </div>
+
+      <div>
+        <label for='fecha_inicio'>Fecha de ingreso</label>
+        <input type='date' name='fecha_inicio' formControlName='fecha_inicio'>*<br>
+        <span>{{ getError('fecha_inicio') }}</span>
+        <br>
+      </div>
+
+      <div>
+        <button (click)="consultar()" class="buttonConsulta" [disabled]="formularioConsulta.invalid"> Consultar Credito
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+
+  <div class="cardResultado" *ngIf=consultaRealizada >
+    <h1>Resultado de la Consulta</h1><br><br>
+    <h2>{{ aprobada }}</h2><br>
+    <h2 *ngIf=boolMonto >Monto aprobado {{ monto }}</h2><br>
+    <h2>{{ mensaje }}</h2><br>
+
+  </div>
+</div>

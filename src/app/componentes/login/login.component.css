@@ -1,0 +1,104 @@
+.container-fluid{
+  display: flex;
+  background-color: 	rgb(67, 67, 170);
+  height: 120px;
+  position: absolute;
+  width: 100%;
+  /* justify-content: space-around; */
+  align-items: center;
+
+}
+
+.divIzquierda{
+  text-align: center;
+  height: 120px;
+  width: 45%;
+  text-align: center;
+}
+
+.logoContainer{
+  color: RGB(255, 255, 255);
+  padding-top: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 25px;
+  display: flex;
+  justify-content: center; 
+}
+
+.divCentro{
+  padding: 30px;
+  text-align: center;
+  height: 120px;
+  width: 25%;
+  
+  font-size: 23px;
+  justify-content: space-around;
+}
+
+.loginFormContainer{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center; 
+}
+
+input{
+    padding: 5px;
+    font-size: 18px;
+    border: 2px solid #0099CC;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+span{
+    color: RGB(255, 255, 255);
+    font-style: italic;
+    font-size: 20px;
+} 
+
+.buttonLogin:enabled{
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 20px;
+  color: white;
+  background: #00a3d8;
+  border: 2px solid #00a3d8;
+  border-radius: 6px;
+}
+
+.buttonLogin:enabled:hover{
+  background-color: #008CBA;
+  color: white;
+  border: 2px solid #008CBA;
+}
+
+.buttonLogin:disabled{
+  margin-left: 10px; 
+  padding: 5px;
+  font-size: 20px;
+  color: rgb(169,169,169);
+  background: rgb(245,245,245);;
+  border: 2px rgb(255,255,255);
+  border-radius: 6px;
+  
+}
+
+
+
+.divDerecha{
+  margin-right: 80px;
+  background-color: rgb(255, 218, 203);
+  padding: 20px;
+  text-align: center;
+  height: 105px;
+  width: 30%;
+  border: 2px solid rgb(250,128,114);
+  border-radius: 50px;
+}

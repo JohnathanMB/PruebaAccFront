@@ -1,0 +1,63 @@
+.cardConsulta{
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    padding: 50px;
+    background-color: RGB(70, 130, 180);
+    border-radius: 15px;
+}
+
+.cardResultado{
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    padding: 50px;
+    background-color: RGB(70, 130, 180);
+    border-radius: 15px;    
+}
+
+input{
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+span{
+    color: RGB(255, 160, 122);
+    font-style: italic;
+    font-size: 15px;
+}
+
+.buttonConsulta:enabled{
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 15px;
+    color: white;
+    background: #00a3d8;
+    border: 2px solid #00a3d8;
+    border-radius: 6px;
+}
+  
+.buttonConsulta:enabled:hover{
+    background-color: #008CBA;
+    color: white;
+    border: 2px solid #008CBA;
+}
+  
+.buttonConsulta:disabled{
+    margin-left: 10px; 
+    padding: 5px;
+    font-size: 15px;
+    color: rgb(169,169,169);
+    background: rgb(245,245,245);;
+    border: 2px rgb(255,255,255);
+    border-radius: 6px; 
+}

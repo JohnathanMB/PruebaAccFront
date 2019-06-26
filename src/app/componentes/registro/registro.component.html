@@ -1,0 +1,50 @@
+<div class="cardRegistro">
+
+  <form [formGroup]="formularioRegistro" class='formularioRegistro'>
+      <h1>Registro</h1>
+    <p>
+      Los campos con * son requeridos
+    </p>
+
+    <div>
+      <label for='cc'>Cedula de ciudadania</label>
+      <input type='number' name='cc' formControlName='cc'>*<br>
+      <span>{{ getError('cc') }}</span>
+      <br>
+    </div>
+
+    <div>
+      <label for="nombre">Nombre</label>
+      <input name="nombre" formControlName="nombre" type="text" />*<br>
+      <span>{{ getError('nombre')}}</span>
+      <br>
+    </div>
+
+    <div>
+      <label for="apellido">Apellido</label>
+      <input name="apellido" formControlName="apellido" type="text" />*<br>
+      <span>{{ getError('apellido')}}</span>
+      <br>
+    </div>
+
+    <div>
+      <label for="fecha_nacimiento">Fecha de nacimiento</label>
+      <input type="date" name="fecha_nacimiento" formControlName="fecha_nacimiento">*<br>
+      <span>{{ getError('fecha_nacimiento')}}</span>
+      <br>
+    </div>
+
+    <div>
+      <button (click)="register()" class="buttonRegistro" [disabled]="formularioRegistro.invalid"> Registrar </button>
+    </div>
+
+  </form>
+
+</div>
+
+<div class="card" *ngIf=cc>
+  <div class="container">
+    <h2>Ya existe un cliente con este documento de identidad</h2>
+    <h4>Verifica tus datos e intentalo de nuevo</h4>
+  </div>
+</div>
